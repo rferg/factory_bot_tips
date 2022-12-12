@@ -2,10 +2,7 @@
 
 FactoryBot.define do
   factory :author do
-    first_name { 'MyString' }
-    middle_name { 'MyString' }
-    last_name { 'MyString' }
-    year_of_birth { 1 }
-    year_of_death { 1 }
+    last_name { Faker::Name.last_name }
+    year_of_birth { Faker::Number.within(range: -3000..Time.zone.now.year) }
   end
 end

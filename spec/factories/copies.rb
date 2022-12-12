@@ -2,6 +2,6 @@
 
 FactoryBot.define do
   factory :copy do
-    book { nil }
+    book
   end
 end

@@ -2,9 +2,7 @@
 
 FactoryBot.define do
   factory :publisher do
-    name { 'MyString' }
-    city { 'MyString' }
-    state { 'MyString' }
-    country { 'MyString' }
+    name { Faker::Book.publisher }
+    country { Faker::Address.country }
   end
 end

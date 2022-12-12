@@ -2,9 +2,9 @@
 
 FactoryBot.define do
   factory :book do
-    title { 'MyString' }
-    year_of_publication { 1 }
-    author { nil }
-    publisher { nil }
+    title { Faker::Book.title }
+    year_of_publication { Faker::Number.within(range: -3000..Time.zone.now.year) }
+    author
+    publisher
   end
 end
