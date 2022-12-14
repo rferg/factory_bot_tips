@@ -12,6 +12,12 @@
 - Can act sort of like parameters for factories with complex logic.
 - Can be useful when creating a root object with associations that you want to change attributes on.
 
+### Example
+
+- [Code](app/models/copy.rb)
+- [Factory](spec/factories/copies.rb)
+- [Tests](spec/models/copy_spec.rb)
+
 ## 3. Not just for `ActiveRecord`s
 
 - You can use factories to create any object, not just `ActiveRecord` models.
