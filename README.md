@@ -6,6 +6,12 @@
 - Add attributes through overrides, traits, and nested factories.
 - Avoids unnecessary attribute setting and allows you to always "build up" factories for test scenarios.
 
+### Example
+
+- [Model](app/models/author.rb)
+- [Schema](db/schema.rb)
+- [Factory](spec/factories/authors.rb)
+
 ## 2. Transient attributes
 
 - Values that are available in a factory, but are not attributes on the resulting object.
