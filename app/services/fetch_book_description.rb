@@ -6,7 +6,9 @@ class FetchBookDescription < ApplicationService
   end
 
   def call
-    body = client.by_isbn(isbn).ensure_success.body
+    body = client.by_isbn(isbn)
+                 .ensure_success
+                 .body
     extract_description(body)
   end
 
