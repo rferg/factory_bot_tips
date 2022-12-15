@@ -12,8 +12,8 @@ FactoryBot.define do
       loans do
         loan_statuses.map do |status|
           active_on = status.fetch(:active_on)
-          returned_on = status[:returned?] ? active_on + 1.minute : nil
-          association(:loan, active_on:, returned_on:)
+          traits = status[:returned?] ? [:returned] : []
+          association(:loan, *traits, active_on:)
         end
       end
     end

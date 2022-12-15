@@ -5,7 +5,7 @@ class Copy < ApplicationRecord
   has_many :loans, inverse_of: :copy, dependent: :destroy
 
   def reserve_for(member, as_of: Time.zone.now)
-    loans.create!(member:, active_on: as_of, due_on: due_date(now))
+    loans.create!(member:, active_on: as_of, due_on: due_date(as_of))
   end
 
   def available?(as_of: Time.zone.now)
@@ -14,11 +14,11 @@ class Copy < ApplicationRecord
 
   private
 
-  def due_date(now)
+  def due_date(active_on)
     if book.best_seller?
-      now + 1.week
+      active_on + 1.week
     else
-      now + 2.weeks
+      active_on + 2.weeks
     end
   end
 end

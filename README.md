@@ -43,7 +43,3 @@
 - `build_stubbed` creates a stub of the object; calling attribute and association methods will return supplied values.  No DB calls.
 - `build` creates an instance of object in-memory only.  Associations are inserted to DB.
 - These are especially useful when testing code that just consumes a model and calls methods on it, e.g., presenters, service objects.
-
-## 5. Make `has_many` associations build strategy agnostic
-
-- Use an array of `association` calls to do this, instead of an `after` callback.
