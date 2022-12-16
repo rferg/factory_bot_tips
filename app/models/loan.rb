@@ -11,9 +11,19 @@ class Loan < ApplicationRecord
   validates :active_on, :due_on, presence: true
   validate :available_copy
 
+  def overdue_fees_cents(now: Time.zone.now)
+    reference_date = (returned_on || now).to_date
+    cents = (reference_date - due_on.to_date).to_i * overdue_cents_per_day
+    [cents, 0].max
+  end
+
   private
 
   def available_copy
     errors.add(:copy, 'is not available') unless copy.available?(as_of: active_on)
+  end
+
+  def overdue_cents_per_day
+    @overdue_cents_per_day ||= 10
   end
 end

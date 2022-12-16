@@ -41,5 +41,15 @@
 
 - DB operations make tests slow.  Avoid these if they are not necessary for tests.
 - `build_stubbed` creates a stub of the object; calling attribute and association methods will return supplied values.  No DB calls.
-- `build` creates an instance of object in-memory only.  Associations are inserted to DB.
-- These are especially useful when testing code that just consumes a model and calls methods on it, e.g., presenters, service objects.
+- `build` creates an instance of object in-memory only.  Associations are also only built, not persisted, by default as of FactoryBot v5.
+- These are especially useful when testing code that just consumes a model and calls methods on it, e.g., presenters, service objects.  Or when testing methods on a model that don't need the DB once instance is created.
+
+### Example (create vs. build)
+
+- [Code](app/models/loan.rb)
+- [Tests](spec/models/loan_spec.rb)
+
+### Example (build_stubbed)
+
+- [Code](app/presenters/loan_presenter.rb)
+- [Tests](spec/presenters/loan_presenter_spec.rb)
